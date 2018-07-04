@@ -10,6 +10,12 @@ public class TbUser {
 
     private String passwords;
 
+    private String realName;
+
+    private String headImage;
+
+    private String phone;
+
     public long getUserId() {
         return userId;
     }
@@ -34,12 +40,39 @@ public class TbUser {
         this.passwords = passwords;
     }
 
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    public String getHeadImage() {
+        return headImage;
+    }
+
+    public void setHeadImage(String headImage) {
+        this.headImage = headImage;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
         return "TbUser{" +
                 "userId=" + userId +
                 ", username='" + username + '\'' +
                 ", passwords='" + passwords + '\'' +
+                ", realName='" + realName + '\'' +
+                ", headImage='" + headImage + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 }
