@@ -7,15 +7,15 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/static/bootstrap/css/bootstrap.min.css}">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{/static/css/font-awesome.min.css}">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="/static/css/ionicons.min.css">
+    <link rel="stylesheet" th:href="@{/static/css/ionicons.min.css}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="/static/css/AdminLTE.min.css">
+    <link rel="stylesheet" th:href="@{/static/css/AdminLTE.min.css}">
     <!-- iCheck -->
-    <link rel="stylesheet" href="/static/css/blue.css">
+    <link rel="stylesheet" th:href="@{/static/css/blue.css}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,7 +34,7 @@
         <p class="login-box-msg">Login</p>
 
         <div class="form-group has-feedback">
-            <span id="login-error" class="hidden">账号或密码错误，请重新输入</span>
+            <span id="login-error" class="hidden" style="color: red">账号或密码错误，请重新输入</span>
         </div>
         <div class="form-group has-feedback">
             <input type="text" class="form-control" id="username" name="username" placeholder="username">
@@ -70,12 +70,13 @@
 <!-- /.login-box -->
 
 <!-- jQuery 2.2.3 -->
-<script src="/static/js/jquery-2.2.3.min.js"></script>
+<script th:src="@{/static/js/jquery-2.2.3.min.js}"></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script th:src="@{/static/bootstrap/js/bootstrap.min.js}"></script>
 <!-- iCheck -->
-<script src="/static/js/icheck.min.js"></script>
+<script th:src="@{/static/js/icheck.min.js}"></script>
 <script>
+    //登录
     $("#loginBtn").click(function () {
         $("#username").parent().removeClass("has-error");
         $("#username-error").addClass("hidden");
@@ -92,7 +93,7 @@
                 data: {"username":username,"passwords":password},
                 success: function (data) {
                     if(data == "success"){
-                        window.location.href("/home");
+                        window.location=("/home");
                     } else{
                         $("#login-error").removeClass("hidden");
                     }
@@ -100,7 +101,7 @@
             });
         }
     });
-
+    //校验是否为空
     function isEmpty() {
         var username = $("#username").val();
         var password = $("#passwords").val();

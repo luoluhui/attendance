@@ -1,6 +1,6 @@
 package com.luolh.common;
 
-import com.luolh.entity.TbUser;
+import com.luolh.user.entity.TbUser;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
