@@ -49,7 +49,7 @@
     </bean>
     <!-- 配置扫描器，将mapper接口实现加入到springIOC容器中 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.luolh"/>
+        <property name="basePackage" value="com.luolh.user.mapper"/>
     </bean>
     <!--声明事务管理 采用注解方式-->
     <tx:annotation-driven transaction-manager="transactionManager"/>

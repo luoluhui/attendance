@@ -16,7 +16,7 @@
     <mvc:annotation-driven/>
 
     <mvc:interceptors>
-        <bean class="com.luolh.common.LoginInterceptor"></bean>
+        <bean class="com.luolh.common.LoginInterceptor"/>
     </mvc:interceptors>
      <!--thymeleaf视图解析 -->
     <bean id="templateResolver" class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">
