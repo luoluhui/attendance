@@ -3,11 +3,8 @@ $(function () {
         type:"POST",
         url:"/userInfo",
         success:function(data){
-            alert("进来啦")
-            alert(data.username);
-        },
-        error:function () {
-            alert("mmp");
+            $(".user-image").attr("src",data.headImage);
+            $(".user-name").text(data.username);
         }
     });
 });

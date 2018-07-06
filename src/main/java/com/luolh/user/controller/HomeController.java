@@ -26,7 +26,17 @@ public class HomeController {
     @ResponseBody
     public TbUser findUser(HttpSession session){
         TbUser user = (TbUser) session.getAttribute("userInfo");
-        System.out.println(user.getUsername());
         return user;
+    }
+
+    /**
+     * 注销登录
+     * @param session
+     * @return
+     */
+    @RequestMapping(value = "/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "login";
     }
 }

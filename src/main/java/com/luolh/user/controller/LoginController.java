@@ -45,8 +45,9 @@ public class LoginController {
     @RequestMapping(value="/check")
     @ResponseBody
     public String login(TbUser user, HttpServletRequest request) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        if(checkUser(user)){
-            request.getSession().setAttribute("userInfo",user);
+        TbUser tbUser = tbUserService.findByUsername(user.getUsername());
+        if(checkUser(user,tbUser.getPasswords())){
+            request.getSession().setAttribute("userInfo",tbUser);
             return "success";
         }
         return "fail";
@@ -59,14 +60,12 @@ public class LoginController {
      * @throws UnsupportedEncodingException
      * @throws NoSuchAlgorithmException
      */
-    private boolean checkUser(TbUser user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+    private boolean checkUser(TbUser user,String dbPasswords) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         boolean result = false;
-        TbUser tbUser = tbUserService.findByUsername(user.getUsername());
-        if(StringUtils.isEmpty(tbUser)){
+        if(StringUtils.isEmpty(user)){
             return result;
         }
-        String passwords = tbUser.getPasswords();
-        result = SecurityUtils.checkPasswords(user.getPasswords(),passwords);
+        result = SecurityUtils.checkPasswords(user.getPasswords(),dbPasswords);
         return result;
     }
 
