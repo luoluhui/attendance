@@ -20,7 +20,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
         HttpSession session = request.getSession();
-        TbUser user = (TbUser) session.getAttribute("userinfo");
+        TbUser user = (TbUser) session.getAttribute("userInfo");
         if(!StringUtils.isEmpty(user)){
             return true;
         }

@@ -46,7 +46,7 @@ public class LoginController {
     @ResponseBody
     public String login(TbUser user, HttpServletRequest request) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         if(checkUser(user)){
-            request.getSession().setAttribute("userinfo",user);
+            request.getSession().setAttribute("userInfo",user);
             return "success";
         }
         return "fail";
