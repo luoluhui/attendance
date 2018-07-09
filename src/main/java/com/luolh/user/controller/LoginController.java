@@ -46,6 +46,9 @@ public class LoginController {
     @ResponseBody
     public String login(TbUser user, HttpServletRequest request) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         TbUser tbUser = tbUserService.findByUsername(user.getUsername());
+        if(StringUtils.isEmpty(tbUser)){
+            return "fail";
+        }
         if(checkUser(user,tbUser.getPasswords())){
             request.getSession().setAttribute("userInfo",tbUser);
             return "success";

@@ -1,7 +1,9 @@
 package com.luolh.user.mapper;
 
 import com.luolh.user.entity.TbUser;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbUserMapper {
 
     /**

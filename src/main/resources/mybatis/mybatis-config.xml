@@ -8,4 +8,11 @@
         <!--开启驼峰命名的转换-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!-- 分页逻辑合理化 -->
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+
 </configuration>
